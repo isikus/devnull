@@ -40,7 +40,7 @@ class Generator(nn.Module):
 
     def forward(self, x):
         return F.log_softmax(self.proj(x), dim=-1)
-	
+    
 def clones(module, N):
     "Produce N identical layers."
     return nn.ModuleList([copy.deepcopy(module) for _ in range(N)])
@@ -252,7 +252,7 @@ class Batch:
             self.tgt = tgt[:, :-1]
             self.tgt_y = tgt[:, 1:]
             self.tgt_mask = self.make_std_mask(self.tgt, pad)
-			self.ntokens = (self.tgt_y != pad).data.sum()
+            self.ntokens = (self.tgt_y != pad).data.sum()
     
     @staticmethod
     def make_std_mask(tgt, pad):
