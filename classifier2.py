@@ -11,7 +11,7 @@ import copy
 import re
 import numpy as np
 import logging
-from gensim.models import Word2Vec
+from gensim.models.fasttext import load_facebook_vectors
 import difflib
 from collections import defaultdict
 #from auto_correction import *
@@ -295,7 +295,7 @@ TARGETS = []
 
 ALL_RESULTS = []
 
-MODEL = Word2Vec.load('./blogs_model')
+MODEL = load_facebook_vectors("./cc.ru.300.bin")
 
 class Word():
 
@@ -343,7 +343,7 @@ class Word():
         """
         have_candidate = 0
         try:
-            candidates_array = MODEL.most_similar(self.word, topn=35) # var
+            candidates_array = MODEL.most_similar(positive=[self.word], topn=10, restrict_vocab=50000) # var
             for candidate in candidates_array:
                 if candidate[1] > 0.40:  #var
                     s = difflib.SequenceMatcher(None, candidate[0], self.word)
