@@ -1,5 +1,6 @@
 python -u test_multipose.py  \
         --names rs_model \
+		--crop_size 1024 \
         --dataset example \
         --list_start 0 \
         --list_end  10 \
@@ -11,13 +12,11 @@ python -u test_multipose.py  \
         --label_nc 5 \
         --nThreads 3 \
         --heatmap_size 2.5 \
-        --chunk_size 1\
+        --chunk_size 1 \
         --no_gaussian_landmark \
-        --multi_gpu \
-        --device_count 2 \
+        --device_count 1 \
         --render_thread 1 \
         --label_mask \
         --align \
         --erode_kernel 21 \
         --yaw_poses 0 30 \
-        --poses 0 \
