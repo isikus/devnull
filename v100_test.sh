@@ -5,7 +5,7 @@ python -u test_multipose.py  \
         --list_start 0 \
         --list_end  10 \
         --dataset_mode allface \
-        --gpu_ids 0 \
+        --gpu_ids 0, \
         --netG rotatespade \
         --norm_G spectralsyncbatch \
         --model rotatespade \
