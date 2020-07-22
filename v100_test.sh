@@ -1,6 +1,6 @@
 python -u test_multipose.py  \
         --names rs_model \
-		--crop_size 1024 \
+        --crop_size 1024 \
         --dataset example \
         --list_start 0 \
         --list_end  10 \
